@@ -31,7 +31,7 @@ public class Question2 {
                 }
                 else if(end-start+1 == k){
                     //handel edge case//
-                    if(li.size() == 0){
+                    if(li.isEmpty()){
                         System.out.print(" 0  ");
                     }
                     else{
