@@ -1,9 +1,10 @@
+/*  
+    Longest Substring Without Repeating Characters
 
-
-
-
-
-/* need change */
+    Input: s = "abcabcbb"
+    Output: 3
+    Explanation: The answer is "abc", with the length of 3.
+*/
 
 import java.util.*;
 
@@ -15,7 +16,6 @@ public class Question7 {
         int start = 0;
         int end = 0;
         int count = -1; //if there is no unique character//
-        int window_size = end-start+1;
 
         HashMap<Character, Integer> map = new HashMap<>();
 
@@ -25,17 +25,17 @@ public class Question7 {
 
             map.put(str.charAt(end), (temp==null)?1 : temp+1);
 
-            if(map.size() < window_size){
+            if(map.size() > end-start+1){  //this condition never hit because window_size(end-start+1) can't graeter than map.size()//
+                end++;                     //But, follow the format of variable sized sliding window//
+            }
+
+            else if(map.size() == end-start+1){
+                count = Math.max(count, end-start+1);
                 end++;
             }
 
-            else if(map.size() == window_size){
-                count = Math.max(count, window_size);
-                end++;
-            }
-
-            else if(map.size() > window_size){
-                while(map.size() > window_size){
+            else if(map.size() < end-start+1){
+                while(map.size() < end-start+1){
                     map.put(str.charAt(start), map.get(str.charAt(start))-1);
                     if(map.get(str.charAt(start))==0){
                         map.remove(str.charAt(start));
