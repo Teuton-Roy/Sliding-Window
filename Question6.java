@@ -15,7 +15,7 @@
 import java.util.*;
 
 public class Question6 {
-    public static int Unique_Char(String str, int k){
+    public static int Unique_Char(String str,int k){
         
         int l = str.length();
         int start = 0;
