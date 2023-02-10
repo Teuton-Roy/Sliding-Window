@@ -15,7 +15,7 @@ public class Question7 {
         int l = str.length();
         int start = 0;
         int end = 0;
-        int count = -1; //if there is no unique character//
+        int count = 0; //if there is no unique character//
 
         HashMap<Character, Integer> map = new HashMap<>();
 
@@ -28,6 +28,10 @@ public class Question7 {
             if(map.size() > end-start+1){  //this condition never hit because window_size(end-start+1) can't graeter than map.size()//
                 end++;                     //But, follow the format of variable sized sliding window//
             }
+
+            // condition when our string is null//
+
+
 
             else if(map.size() == end-start+1){
                 count = Math.max(count, end-start+1);
