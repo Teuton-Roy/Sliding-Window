@@ -14,7 +14,7 @@
 import java.util.*;
 
 
-public class Questions1{
+public class Question1{
 
     public static int Max_Sum(int[] arr, int n, int k){
         int start = 0;
